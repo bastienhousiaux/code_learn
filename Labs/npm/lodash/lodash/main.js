@@ -1,0 +1,60 @@
+let _=require("lodash");
+
+let lodashExample={
+    //_.add(a,b) returns a+b
+    add:function(){
+        console.log(_.add(6,4));//10
+    },
+
+    //_.after(nbCall,func) returns a callback that will call func only on the n call and further
+    after:function(){
+        var callFooAfter3Calls=_.after(3,function(){
+            console.log("foo");
+        });
+        callFooAfter3Calls();
+        callFooAfter3Calls();
+        callFooAfter3Calls();//first time foo is called
+    },
+
+    array:function(){
+        console.log("require(lodash/array) to get array related func cherry picked");
+    },
+
+    // _.ary(func,nbArgsAccepted) create a wrapper for func that limits the number of args 
+    //passed to it
+    ary:function(){
+        var capedArgsFunc=_.ary(function(a,b,c){
+            console.log(a,b,c);
+        },1);
+        capedArgsFunc(1,2,3); //1 undefined undefined
+    },
+
+    //assign(obj1,obj2,...) set all prop on obj1 to obj2,3,4,... values and returns obj1
+    //last values overwritte previous values
+    assign:function(){
+        var objA={
+            a:5,
+            b:10
+        }
+        var objB={
+            a:7,
+            c:14
+        }
+        var objC={
+            c:3,
+            d:9
+        }
+        
+        
+        console.log(_.assign(objA,objB,objC));//{a:7,b:10,c:3,d:9}
+        console.log(objA);//{a:7,b:10,c:3,d:9}
+        console.log(objB);//unchanged
+        console.log(objC);//unchanged
+    }
+}
+
+lodashExample.assign();
+
+
+
+
