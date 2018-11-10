@@ -1,6 +1,27 @@
 let _=require("lodash");
 
+
+
+
 let lodashExample={
+
+
+    /**
+     * ARRAYS
+     */
+
+     //_.chunk(array, [size=1]):array
+    // créé un array contenant des sous array de taille [size] contenant les éléments du tableau dans l'ordre
+     chunk:function(){
+        console.log(_.chunk([1,2,3,4],2));//[[1,2],[3,4]]
+     },
+
+    //_.compact(array):array
+    //retourne un tableau sans valeur fausse ( false, null, 0, "", undefined et NaN)
+    compact:function(){
+        console.log(_.compact([1,null,2,false,3]));//[1,2,3]
+    },
+
     //_.add(a,b) returns a+b
     add:function(){
         console.log(_.add(6,4));//10
@@ -53,8 +74,8 @@ let lodashExample={
     }
 }
 
-lodashExample.assign();
 
 
 
+lodashExample.compact();
 
